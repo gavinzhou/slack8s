@@ -55,7 +55,7 @@ container_bundle(
     name = "bundle_to_push",
     images = {
         "asia.gcr.io/saas-orangesys-io/alpine-slack8s:{VERSION}": ":go_image",
-        "asia.gcr.io/saas-orangesys-io/alpine-slack8s": ":go_image",
+        "asia.gcr.io/saas-orangesys-io/alpine-slack8s:latest": ":go_image",
     },
     stamp = True,
 )
