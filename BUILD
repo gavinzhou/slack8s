@@ -49,3 +49,22 @@ container_push(
   # Trigger stamping.
   stamp = True,
 )
+
+container_bundle(
+    name = "bundle_to_push",
+    images = {
+        "asia.gcr.io/saas-orangesys-io/alpine-slack8s:{VERSION}": ":go_image",
+        "asia.gcr.io/saas-orangesys-io/alpine-slack8s": ":go_image",
+    },
+    stamp = True,
+)
+
+load(
+    "@io_bazel_rules_docker//contrib:push-all.bzl",
+    docker_pushall = "docker_push",
+)
+
+docker_pushall(
+    name = "push_bundle",
+    bundle = ":bundle_to_push",
+)
