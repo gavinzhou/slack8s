@@ -34,6 +34,7 @@ go_image(
 load(
     "@io_bazel_rules_docker//container:container.bzl",
     "container_push",
+    "container_bundle",
 )
 
 container_push(
