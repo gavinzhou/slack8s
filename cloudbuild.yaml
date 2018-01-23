@@ -1,6 +1,6 @@
 steps:
 - id: 'build-image'
   name: 'gcr.io/cloud-builders/bazel'
-  args: ['run', '//:publish']
+  args: ['run', '//:push_bundle']
 
-# images: ['asia.gcr.io/$PROJECT_ID/orangeapi']
+# images: ['asia.gcr.io/$PROJECT_ID/slack8s']
