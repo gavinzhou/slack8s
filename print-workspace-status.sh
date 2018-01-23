@@ -4,10 +4,10 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-if [ -z "${VERSION:-}" ]; then
-  VERSION="$(git describe --always --tags)"
+if [ -z "${TAG_NAME:-}" ]; then
+  TAG_NAME="$(git describe --always --tags)"
 fi
 
 cat << EOF
-VERSION ${VERSION}
+TAG_NAME ${TAG_NAME}
 EOF

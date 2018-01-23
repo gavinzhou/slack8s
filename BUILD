@@ -45,7 +45,7 @@ container_push(
   # Any of these components may have variables.
   registry = "asia.gcr.io",
   repository = "saas-orangesys-io/slack8s",
-  tag = "{VERSION}",
+  tag = "{TAG_NAME}",
 
   # Trigger stamping.
   stamp = True,
@@ -54,7 +54,7 @@ container_push(
 container_bundle(
     name = "bundle_to_push",
     images = {
-        "asia.gcr.io/saas-orangesys-io/alpine-slack8s:{VERSION}": ":go_image",
+        "asia.gcr.io/saas-orangesys-io/alpine-slack8s:{TAG_NAME}": ":go_image",
         "asia.gcr.io/saas-orangesys-io/alpine-slack8s:latest": ":go_image",
     },
     stamp = True,
