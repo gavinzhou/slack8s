@@ -1,5 +1,4 @@
-[![](https://images.microbadger.com/badges/image/orangesys/alpine-slack8s.svg)](https://microbadger.com/images/orangesys/alpine-slack8s "Get your own image badge on microbadger.com")
-[![](https://images.microbadger.com/badges/version/orangesys/alpine-slack8s.svg)](https://microbadger.com/images/orangesys/alpine-slack8s "Get your own version badge on microbadger.com")
+[![CircleCI](https://circleci.com/gh/orangesys/slack8s.svg?style=svg)](https://circleci.com/gh/orangesys/slack8s)
 # Kubernetes Events Slack Bot (slack8s)
 
 Kubernetes Slack Integration - Infinite loop go program which queries the Kubernetes Event Stream API and
@@ -18,7 +17,7 @@ bazel build :slack8s
 ## Build container image
 
 ```bash
-bazel run :image 
+bazel run :image
 ```
 
 ## Running
