@@ -31,7 +31,26 @@ jobs:
           name: Build image
           command: |
             bazel build //:image
-
+  deploy:
+    <<: *container_config
+    steps:
+      - checkout
+      - run:
+          name: Install bazel
+          command: |
+            echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list
+            curl https://bazel.build/bazel-release.pub.gpg | sudo apt-key add -
+            sudo apt-get update
+            sudo apt-get install bazel
+            bazel info release
+      - run:
+          name: Docker hub login
+          command: |
+            docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - run:
+          name: Push container images to docker hub
+          command: |
+            bazel run //:publish
 workflows:
   version: 2
   build-and-deploy:
@@ -40,3 +59,11 @@ workflows:
           filters:
             tags:
               only: /^v[0-9]+(\.[0-9]+)*/
+      - deploy:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /^v[0-9]+(\.[0-9]+)*/
+            branchers:
+              ignore: /.*/

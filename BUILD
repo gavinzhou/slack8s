@@ -43,8 +43,8 @@ container_push(
   format = "Docker",
   image = ":image",
   # Any of these components may have variables.
-  registry = "asia.gcr.io",
-  repository = "saas-orangesys-io/slack8s",
+  registry = "index.docker.io",
+  repository = "orangesys//slack8s",
   tag = "{TAG_NAME}",
 
   # Trigger stamping.
