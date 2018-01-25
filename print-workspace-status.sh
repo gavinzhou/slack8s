@@ -4,10 +4,8 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-GIT_COMMIT=$(git rev-parse --short HEAD)
-GIT_TAG=$(git describe --abbrev=0 --tags 2>/dev/null || echo $TAG_NAME)
+GIT_TAG=$(git describe --always --tags || echo $TAG_NAME)
 
 cat << EOF
-STABLE_BUILD_GIT_COMMIT ${GIT_COMMIT-}
 STABLE_BUILD_GIT_TAG ${GIT_TAG-}
 EOF
