@@ -39,12 +39,11 @@ load(
 
 container_push(
   name = "publish",
-
   format = "Docker",
   image = ":image",
   # Any of these components may have variables.
   registry = "index.docker.io",
-  repository = "orangesys//slack8s",
+  repository = "orangesys/slack8s",
   tag = "{STABLE_BUILD_GIT_TAG}",
 
   # Trigger stamping.
