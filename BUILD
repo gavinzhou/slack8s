@@ -45,7 +45,7 @@ container_push(
   # Any of these components may have variables.
   registry = "index.docker.io",
   repository = "orangesys//slack8s",
-  tag = "{TAG_NAME}",
+  tag = "{STABLE_BUILD_GIT_TAG}",
 
   # Trigger stamping.
   stamp = True,
@@ -54,7 +54,7 @@ container_push(
 container_bundle(
     name = "bundle_to_push",
     images = {
-        "asia.gcr.io/saas-orangesys-io/slack8s:{TAG_NAME}": ":image",
+        "asia.gcr.io/saas-orangesys-io/slack8s:{STABLE_BUILD_GIT_TAG}": ":image",
         "asia.gcr.io/saas-orangesys-io/slack8s:latest": ":image",
     },
     stamp = True,
