@@ -1,8 +1,6 @@
 steps:
 - id: 'build-image'
   name: 'gcr.io/cloud-builders/bazel'
-  args: ['run', '//:push_bundle']
+  args: ['run', ':push_bundle']
   env:
   - 'TAG_NAME=$TAG_NAME'
-
-# images: ['asia.gcr.io/$PROJECT_ID/slack8s']
